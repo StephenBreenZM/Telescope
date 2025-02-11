@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Telescope.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="zeromission_logo.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
+
+            <!-- <Label -->
+            <!--     Text="Telescope driver accompany App" -->
+            <!--     Style="{StaticResource Headline}" -->
+            <!--     SemanticProperties.HeadingLevel="Level1" /> -->
+            
+            <!-- <Grid RowDefinitions="*, *, *" ColumnDefinitions="*, *" Padding="20" ColumnSpacing="20"> -->
+            <!--     <Button Text="Open Map" Grid.Row="0" Grid.Column="0" Clicked="OnMapButtonClicked" /> -->
+            <!--     <Button Text="Camera Features" Grid.Row="0" Grid.Column="1" Clicked="StartListening" /> -->
+            <!--     ~1~ <Button Text="Page 3" Grid.Row="1" Grid.Column="0" Clicked="GoToPage3" /> @1@ -->
+            <!--     ~1~ <Button Text="Page 4" Grid.Row="1" Grid.Column="1" Clicked="GoToPage4" /> @1@ -->
+            <!-- </Grid>  -->
+            
+            <Button Text="Open Map"
+                    Clicked="OnMapButtonClicked" />
+            
+            <Button Text="Listen"
+                    Clicked="StartListening" />
+            
+            <Button Text="Stop Listen"
+                    Clicked="StopListening" />
+            
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
