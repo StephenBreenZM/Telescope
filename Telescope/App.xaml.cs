@@ -1,4 +1,7 @@
-﻿namespace Telescope;
+﻿using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+
+namespace Telescope;
 
 public partial class App : Application
 {

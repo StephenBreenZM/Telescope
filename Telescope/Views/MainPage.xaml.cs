@@ -1,9 +1,15 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Globalization;
+using System.Threading;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Media;
+using Microsoft.Maui.ApplicationModel;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Devices.Sensors;
+using Telescope.MSALClient;
 
-namespace Telescope;
+namespace Telescope.Views;
 
 public partial class MainPage
 {
@@ -61,7 +67,35 @@ public partial class MainPage
             Debug.WriteLine($"Error opening map: {ex.Message}");
         }
     }
-
+    
+    private async void OnO365SignInClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            await PublicClientSingleton.Instance.AcquireTokenSilentAsync();
+            await Shell.Current.GoToAsync("ReportsPage");
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            await DisplayAlert("Error", $"{exception.Message}", "OK");
+        }
+    }
+    
+    private async void OnAuth0SignInClicked(object sender, EventArgs e)
+    {
+        // await DisplayAlert("Auth0 Sign In", "Sign in with Auth0 not yet implemented", "OK");
+        try
+        {
+            
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            await DisplayAlert("Error", $"{exception.Message}", "OK");
+        }
+    }
+    
     // Example usage in a button click event handler:
     private void OnMapButtonClicked(object sender, EventArgs e)
     {

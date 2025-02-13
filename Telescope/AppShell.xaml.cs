@@ -1,4 +1,6 @@
-﻿using Telescope.Helpers;
+﻿using Microsoft.Maui.Controls;
+using Telescope.Helpers;
+using Telescope.Views;
 
 namespace Telescope;
 

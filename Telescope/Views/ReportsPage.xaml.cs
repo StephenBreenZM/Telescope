@@ -1,12 +1,13 @@
 using System.Diagnostics;
+using Microsoft.Maui.Controls;
 using Telescope.ViewModels;
 
-namespace Telescope;
+namespace Telescope.Views;
 
-public partial class Reports : ContentPage
+public partial class ReportsPage : ContentPage
 {
     ReportsViewModel vm;
-    public Reports(ReportsViewModel vm)
+    public ReportsPage(ReportsViewModel vm)
     {
         InitializeComponent();
         this.vm = vm;

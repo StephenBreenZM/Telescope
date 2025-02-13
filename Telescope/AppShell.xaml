@@ -3,7 +3,7 @@
     x:Class="Telescope.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Telescope"
+    xmlns:local="clr-namespace:Telescope.Views"
     Shell.FlyoutBehavior="Flyout"
     Title="Telescope">
 
@@ -11,16 +11,16 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-    <ShellContent
-        Title="Simple Features"
-        ContentTemplate="{DataTemplate local:SimpleFeatures}"
-        Route="SimpleFeatures" />
-    <ShellContent
-        Title="Camera Features"
-        ContentTemplate="{DataTemplate local:CameraFeatures}"
-        Route="CameraFeatures" />
-    <ShellContent
-        Title="Reports"
-        ContentTemplate="{DataTemplate local:Reports}"
-        Route="Reports" />
+    <!-- <ShellContent -->
+    <!--     Title="Simple Features" -->
+    <!--     ContentTemplate="{DataTemplate local:SimpleFeatures}" -->
+    <!--     Route="SimpleFeatures" /> -->
+    <!-- <ShellContent -->
+    <!--     Title="Camera Features" -->
+    <!--     ContentTemplate="{DataTemplate local:CameraFeatures}" -->
+    <!--     Route="CameraFeatures" /> -->
+    <!-- <ShellContent -->
+    <!--     Title="Reports" -->
+    <!--     ContentTemplate="{DataTemplate local:ReportsPage}" -->
+    <!--     Route="Reports" /> -->
 </Shell>

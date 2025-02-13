@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Telescope.ViewModels"
              xmlns:models="clr-namespace:Microsoft.PowerBI.Api.Models;assembly=Microsoft.PowerBI.Api"
-             x:Class="Telescope.Reports"
+             x:Class="Telescope.Views.ReportsPage"
              x:DataType="vm:ReportsViewModel"
              Title="Power BI Reports">
     <ContentPage.Content>

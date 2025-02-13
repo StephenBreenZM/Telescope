@@ -1,13 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
-using Font = Microsoft.Maui.Font;
+using Microsoft.Maui;
+using Microsoft.Maui.Accessibility;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
 
-namespace Telescope;
+namespace Telescope.Views;
 
 public partial class SimpleFeatures : ContentPage
 {
@@ -36,9 +36,7 @@ public partial class SimpleFeatures : ContentPage
             BackgroundColor = Colors.Red,
             TextColor = Colors.Green,
             ActionButtonTextColor = Colors.Yellow,
-            CornerRadius = new CornerRadius(10),
-            Font = Font.SystemFontOfSize(14),
-            ActionButtonFont = Font.SystemFontOfSize(14),
+            CornerRadius = new CornerRadius(10), 
             CharacterSpacing = 0.5
         };
 

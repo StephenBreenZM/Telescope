@@ -1,6 +1,10 @@
+using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using Microsoft.Maui.ApplicationModel;
 using Microsoft.Rest;
 using Microsoft.PowerBI.Api;
+using Microsoft.PowerBI.Api.Models;
 using Telescope.Helpers;
 
 namespace Telescope.Services;
@@ -15,7 +19,7 @@ public class PowerBIService : IPowerBIService
 			//this.authenticator = authenticator;
 		}
 
-		public async Task<Microsoft.PowerBI.Api.Models.Reports> GetReports()
+		public async Task<Reports> GetReports()
 		{
 			await UpdateActivityIndicatorStatus(true);
 
@@ -28,7 +32,7 @@ public class PowerBIService : IPowerBIService
 			catch (Exception e)
 			{
 				Debug.WriteLine(e.Message);
-				return new Microsoft.PowerBI.Api.Models.Reports();
+				return new Reports();
 			}
 			finally
 			{

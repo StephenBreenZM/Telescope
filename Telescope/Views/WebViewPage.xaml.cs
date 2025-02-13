@@ -1,6 +1,7 @@
+using Microsoft.Maui.Controls;
 using Telescope.ViewModels;
 
-namespace Telescope;
+namespace Telescope.Views;
 
 public partial class WebViewPage : ContentPage
 {
