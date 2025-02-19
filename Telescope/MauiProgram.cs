@@ -1,11 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using CommunityToolkit.Maui;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Maui.Controls.Hosting;
-using Microsoft.Maui.Hosting;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using Telescope.Services;
-using Telescope.ViewModels;
-using Telescope.Views;
 using ZXing.Net.Maui.Controls;
 
 namespace Telescope;
@@ -25,6 +20,11 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+
+#if DEBUG
+        builder.Logging.AddDebug();
+#endif
+        builder.Services.AddTransient<ApiService>();
         
         // builder.Services.AddSingleton<IPowerBIService, PowerBIService>();
         //
@@ -34,9 +34,8 @@ public static class MauiProgram
         // builder.Services.AddTransient<ReportsViewModel>();
         // builder.Services.AddTransient<WebViewModel>();
         // builder.Services.AddTransient<WebViewPage>();
-        
-        builder.Logging.AddDebug();
 
+        
         return builder.Build();
     }
 }

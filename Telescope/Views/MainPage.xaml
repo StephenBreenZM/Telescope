@@ -9,12 +9,12 @@
             Spacing="25">
             <Image
                 Source="zeromission_logo.png"
-                HeightRequest="185"
+                HeightRequest="105"
                 Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
+                SemanticProperties.Description="zeromission logo" />
 
             <Label
-                Text="Telescope driver accompany App"
+                Text="Telescope App"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
             

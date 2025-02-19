@@ -79,7 +79,7 @@ public class PublicClientSingleton
     {
         return await this.MSALClientHelper.SignInUserAndAcquireAccessToken(scopes).ConfigureAwait(false);
     }
-
+    
     /// <summary>
     /// Perform the interactive acquisition of the token for the given scope
     /// </summary>

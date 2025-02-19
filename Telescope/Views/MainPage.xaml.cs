@@ -1,13 +1,10 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Globalization;
-using System.Threading;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Media;
-using Microsoft.Maui.ApplicationModel;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Devices.Sensors;
 using Telescope.MSALClient;
+using Auth0.OidcClient;
+using Telescope.Services;
 
 namespace Telescope.Views;
 
@@ -87,11 +84,27 @@ public partial class MainPage
         // await DisplayAlert("Auth0 Sign In", "Sign in with Auth0 not yet implemented", "OK");
         try
         {
-            
+            var client = new Auth0Client(new Auth0ClientOptions
+            {
+                Domain = "zmission-staging.eu.auth0.com",
+                ClientId = "lBaAZszGpbZowwQxBkOBtg6uNCjhC0Jw",
+                RedirectUri = "myapp://callback",
+                PostLogoutRedirectUri = "myapp://callback",
+                Scope = "openid profile email"
+            });
+            var service = new ApiService(client);
+           
+            var reports = await service.GetReportsList();
+            // await DisplayAlert("Reports List", $"Found {reports.Count}", "OK");
+            // foreach (var report in reports)
+            // {
+            //     await DisplayAlert("Found", $"Report result: {report.Name}, {report.Description}, {report.Id}", "OK"); // This is the token you need to pass to the API
+            // }
         }
         catch (Exception exception)
         {
             Console.WriteLine(exception);
+            Clipboard.Default.SetTextAsync(exception.Message);
             await DisplayAlert("Error", $"{exception.Message}", "OK");
         }
     }
