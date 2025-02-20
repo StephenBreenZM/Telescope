@@ -1,21 +1,31 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Globalization;
+using System.Net;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Media;
 using Telescope.MSALClient;
 using Auth0.OidcClient;
+using Telescope.Model;
 using Telescope.Services;
+using Telescope.ViewModels;
 
 namespace Telescope.Views;
 
 public partial class MainPage
 {
-
+    private ObservableCollection<ReportView> _reports;
     private readonly ISpeechToText _speechToText;
 
     public MainPage()
     {
         InitializeComponent();
+        _reports =
+        [
+            new ReportView() { Name = "Report 1", Url = "https://example.com/report1" },
+            new ReportView() { Name = "Report 2", Url = "https://example.com/report2" }
+        ];
+        ReportPicker.ItemsSource = _reports;
         _speechToText = new SpeechToTextImplementation(); // Replace with your actual implementation
     } 
     
@@ -93,8 +103,14 @@ public partial class MainPage
                 Scope = "openid profile email"
             });
             var service = new ApiService(client);
-           
-            var reports = await service.GetReportsList();
+            _reports = await service.GetReportsList();
+            ReportPicker.ItemsSource = _reports;
+            ReportPicker.SelectedIndex = 0;
+
+            // var reportsPage = new ReportsPage();
+            //await Navigation.PushAsync(reportsPage);
+
+            //await Shell.Current.GoToAsync("ReportsPage");
             // await DisplayAlert("Reports List", $"Found {reports.Count}", "OK");
             // foreach (var report in reports)
             // {
@@ -104,7 +120,6 @@ public partial class MainPage
         catch (Exception exception)
         {
             Console.WriteLine(exception);
-            Clipboard.Default.SetTextAsync(exception.Message);
             await DisplayAlert("Error", $"{exception.Message}", "OK");
         }
     }
@@ -113,5 +128,13 @@ public partial class MainPage
     private void OnMapButtonClicked(object sender, EventArgs e)
     {
         OpenMapToLocation(52.35790432271456, -7.74245839859923, "Zeromission HQ"); // Opens to the Space Needle
+    }
+    private void OnReportSelected(object sender, EventArgs e)
+    {
+        if (ReportPicker.SelectedItem is ReportView selectedReport)
+        {
+            ReportWebView.Source = selectedReport.Url;
+            //ReportWebView.Cookies = selectedReport.AccessToken;
+        }
     }
 }

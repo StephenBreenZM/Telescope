@@ -20,13 +20,19 @@ public partial class ReportsViewModel : BaseViewModel
     [ObservableProperty]
     Report selectedReport;
 
-    public ObservableCollection<Report> VisibleReportsListData { get; } = new();
+    public ObservableCollection<Report> VisibleReportsListData { get; set; } = new();
 
     IPowerBIService service;
 
     public ReportsViewModel(IPowerBIService service)
     {
         this.service = service;
+        Debug.WriteLine("ReportsViewModel created");
+    }
+
+    public ReportsViewModel()
+    {
+        service = new PowerBIService();
         Debug.WriteLine("ReportsViewModel created");
     }
 

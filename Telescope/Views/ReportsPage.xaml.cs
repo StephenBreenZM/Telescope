@@ -1,28 +1,56 @@
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Microsoft.Maui.Controls;
+using Telescope.Model;
 using Telescope.ViewModels;
 
 namespace Telescope.Views;
 
 public partial class ReportsPage : ContentPage
 {
-    ReportsViewModel vm;
-    public ReportsPage(ReportsViewModel vm)
+    private ObservableCollection<ReportView> _reports;
+    
+    public ReportsPage()
     {
         InitializeComponent();
-        this.vm = vm;
-        this.BindingContext = vm;
+        _reports =
+        [
+            new ReportView() { Name = "Report 1", Url = "https://example.com/report1" },
+            new ReportView() { Name = "Report 2", Url = "https://example.com/report2" }
+        ];
+        ReportPicker.ItemsSource = _reports;
     }
-    protected override void OnAppearing()
+    public ReportsPage(ObservableCollection<ReportView> reports)
     {
-        base.OnAppearing();
-        if (vm != null)
+        InitializeComponent();
+        _reports = reports;
+        ReportPicker.ItemsSource = _reports;
+    }
+    private void OnReportSelected(object sender, EventArgs e)
+    {
+        if (ReportPicker.SelectedItem is ReportView selectedReport)
         {
-            Debug.WriteLine("VM is not null");
-            this.vm.SelectedReport = null;
-            this.vm.IsReportsListRefreshing = true;
+            ReportWebView.Source = selectedReport.Url;
         }
     }
+    //
+    // public ReportsPage()
+    // {
+    //     InitializeComponent();
+    //     this.vm = new ReportsViewModel();
+    //     this.BindingContext = vm;
+    // }
+    //
+    // protected override void OnAppearing()
+    // {
+    //     base.OnAppearing();
+    //     if (vm != null)
+    //     {
+    //         Debug.WriteLine("VM is not null");
+    //         this.vm.SelectedReport = null;
+    //         this.vm.IsReportsListRefreshing = true;
+    //     }
+    // }
     // protected override void OnAppearing()
     // {
     //     base.OnAppearing();
