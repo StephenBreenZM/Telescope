@@ -11,6 +11,5 @@ public partial class AppShell : Shell
         InitializeComponent();
         Routing.RegisterRoute("camerafeatures", typeof(CameraFeatures));
         Routing.RegisterRoute("simplefeatures", typeof(SimpleFeatures));
-        Routing.RegisterRoute(Constants.DetailsRoute, typeof(WebViewPage));
     }
 }

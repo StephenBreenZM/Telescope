@@ -87,13 +87,7 @@
       <MauiXaml Update="Views\CameraFeatures.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
-      <MauiXaml Update="Views\ReportsPage.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
       <MauiXaml Update="Views\SimpleFeatures.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
-      <MauiXaml Update="Views\WebViewPage.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
       <MauiXaml Update="Views\MainPage.xaml">
@@ -106,16 +100,8 @@
         <DependentUpon>CameraFeatures.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
-      <Compile Update="Views\ReportsPage.xaml.cs">
-        <DependentUpon>Reports.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
       <Compile Update="Views\SimpleFeatures.xaml.cs">
         <DependentUpon>SimpleFeatures.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\WebViewPage.xaml.cs">
-        <DependentUpon>WebViewPage.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
       <Compile Update="Views\MainPage.xaml.cs">

@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
+    Shell.FlyoutBehavior="Disabled"
+    Title="Telescope"
     x:Class="Telescope.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Telescope.Views"
-    Shell.FlyoutBehavior="Flyout"
-    Title="Telescope">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage"
+        Title="Home" />
     <ShellContent
-        Title="Simple Features"
         ContentTemplate="{DataTemplate local:SimpleFeatures}"
-        Route="SimpleFeatures" />
+        Route="SimpleFeatures"
+        Title="Simple Features" />
     <ShellContent
-        Title="Camera Features"
         ContentTemplate="{DataTemplate local:CameraFeatures}"
-        Route="CameraFeatures" />
-    <ShellContent
-        Title="Reports"
-        ContentTemplate="{DataTemplate local:ReportsPage}"
-        Route="Reports" />
+        Route="CameraFeatures"
+        Title="Camera Features" />
 </Shell>

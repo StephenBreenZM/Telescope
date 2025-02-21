@@ -14,7 +14,8 @@
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="OnCounterClicked"
             HorizontalOptions="Fill" />
-            
+        <Button Text="Open Map"
+                Clicked="OnMapButtonClicked" />
         <Button Text="Trigger Notification"
                 Clicked="OnNotifyButtonClicked" />
         </VerticalStackLayout>
